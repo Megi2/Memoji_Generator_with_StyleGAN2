@@ -3,6 +3,9 @@
 ![image](https://github.com/Megi2/Memoji_Generator_with_StyleGAN2/assets/65165556/cb2ef54a-686c-4c61-a2f8-5bc122779c05)
 # 📋 SUMMARY
 캐릭터를 고르면 표정을 실시간 이모티콘화 해주는 IOS 프로그램인 **MEMOJI**를 사람 이미지로 부터 자동으로 생성해주는 프로그램입니다. Pytoch 기반 [StyleGAN2-ADA](https://github.com/NVlabs/stylegan2)를 사용하여 제작하였습니다.
+# REQUIRMENT
+- numpy 1.23.5
+- 
 # ✏️ PRIOR KNOWLEDGE
 ## Toonify
 Resolution Dependent GAN Interpolation for Controllable Image Synthesis Between Domains 논문의 내용을 기반으로 서술합니다.
@@ -29,3 +32,18 @@ c~e는 두 개의 도메인을 적절하게 blending한 이미지입니다. (ex.
 
 ![image](https://github.com/Megi2/Memoji_Generator_with_StyleGAN2/assets/65165556/45dbbc57-656f-4024-99eb-ab0937ac5100)
 
+# Memoji_SG2_ADA_PyTorch.ipynb
+## Train model
+- pre-traind model인 FFHQ256(사람 얼굴 생성 모델)을 기반으로 Memoji 데이터셋을 **전이 학습**하는 과정입니다.
+- dataset_path : memoji 데이터셋 경로
+- resume_from : 학습을 처음 시작한다면 FFHQ256 모델의 경로, 중간에 멈췄다면 checkpoint 모델의 경로
+```
+dataset_path = '/content/drive/MyDrive/KHUDA_winter/Memoji.zip'
+resume_from = '/content/drive/MyDrive/colab-sg2-ada-pytorch/stylegan2-ada-pytorch/results2/00001-Memoji-mirror-paper256-gamma50-bg-resumeffhq256/network-snapshot-000435.pkl'
+aug_strength = 0.328
+train_count = 435
+mirror_x = True
+```
+```
+!python train.py --gpus=1 --cfg=$config --metrics=None --outdir=./results --data=$dataset_path --snap=$snapshot_count --resume=$resume_from --augpipe=$augs --initstrength=$aug_strength --gamma=$gamma_value --mirror=$mirror_x --mirrory=False --nkimg=$train_count
+```
