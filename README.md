@@ -56,3 +56,9 @@ mirror_x = True
 !python projector.py --network=/content/drive/MyDrive/KHUDA_winter/ffhq-res512-mirror-stylegan2-noaug.pkl --outdir=/content/drive/MyDrive/KHUDA_winter/out0121 --target=/content/drive/MyDrive/KHUDA_winter/test_img.png --num-steps=200 --seed=0
 ```
 
+# StyleGAN3 blending public
+## StyleGAN2 model blending
+- Train model에서 생성한 미모지 생성 모델과 FFHQ를 블렌딩하는 과정입니다.
+- net_raw : network를 가져올 모델 경로(FFHQ)
+- net_tune : Generator를 가져올 모델 경로(미모지 생성 모델)
+- 낮은 레이어 : 전반적 헤어스타일 등의 요소, 높은 레이어 : 눈, 코, 입 등 디테일한 요소
