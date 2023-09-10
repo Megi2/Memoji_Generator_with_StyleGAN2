@@ -49,3 +49,10 @@ mirror_x = True
 ```
 !python train.py --gpus=1 --cfg=$config --metrics=None --outdir=./results --data=$dataset_path --snap=$snapshot_count --resume=$resume_from --augpipe=$augs --initstrength=$aug_strength --gamma=$gamma_value --mirror=$mirror_x --mirrory=False --nkimg=$train_count
 ```
+
+## Projection
+- blened 모델을 사용해 실제 사진에서 미모지 사진을 얻어내는 과정입니다.
+```
+!python projector.py --network=/content/drive/MyDrive/KHUDA_winter/ffhq-res512-mirror-stylegan2-noaug.pkl --outdir=/content/drive/MyDrive/KHUDA_winter/out0121 --target=/content/drive/MyDrive/KHUDA_winter/test_img.png --num-steps=200 --seed=0
+```
+
