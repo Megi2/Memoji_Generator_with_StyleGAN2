@@ -3,6 +3,8 @@
 ![image](https://github.com/Megi2/Memoji_Generator_with_StyleGAN2/assets/65165556/cb2ef54a-686c-4c61-a2f8-5bc122779c05)
 # 📋 SUMMARY
 캐릭터를 고르면 표정을 실시간 이모티콘화 해주는 IOS 프로그램인 **MEMOJI**를 사람 이미지로 부터 자동으로 생성해주는 프로그램입니다. Pytoch 기반 [StyleGAN2-ADA](https://github.com/NVlabs/stylegan2)를 사용하여 제작하였습니다.
+<br/>
+[발표자료](https://drive.google.com/file/d/1FII0daszAjoj5O2mMHDplxkdilAGOSi4/view?usp=drive_link)
 # REQUIRMENT
 - numpy 1.23.5
 - 
